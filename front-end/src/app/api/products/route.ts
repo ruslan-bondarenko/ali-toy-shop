@@ -3,7 +3,7 @@ import type { NextApiResponse } from "next";
 
 export async function GET(req: Request, res: NextApiResponse) {
   try {
-    const products = await fetch("http://localhost:3001/products").then((res) =>
+    const products = await fetch("https://dummyjson.com/products").then((res) =>
       res.json()
     );
     return NextResponse.json(products);

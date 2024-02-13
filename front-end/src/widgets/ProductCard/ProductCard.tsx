@@ -16,8 +16,19 @@ type Props = {
 };
 
 const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
-  const { id, name, brand, price, currency, imgUrl, isAvailable, tag } =
-    product;
+  const {
+    id,
+    title,
+    description,
+    price,
+    discountPercentage,
+    rating,
+    stock,
+    brand,
+    category,
+    thumbnail,
+    images,
+  } = product;
 
   const [selectedProducts, setSelectedProducts] = useState<IProduct[] | null>();
 
@@ -31,27 +42,30 @@ const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
 
   return (
     <div className="flex flex-col p-4 group/card">
-      <div className="relative mb-2 aspect-square w-full h-full">
+      <div className="relative mb-2 !aspect-square overflow-hidden w-full h-full">
         <Image
           width={0}
           height={0}
           sizes="100vw"
           style={{ width: "100%", height: "100%" }}
-          src={imgUrl || "https://placehold.co/600x400/png"}
+          className="!object-contain"
+          src={thumbnail || images[0] || "https://placehold.co/600x400/png"}
           alt={`product-img--${id}`}
         />
-        {!!tag && (
+
+        {/* {!!tag && (
           <div className="absolute top-0 left-0 px-4 py-2 text-xs text-gray-100 bg-gray-500 hover:opacity-70 transition-all ease-linear">
             {tag}
           </div>
-        )}
+        )} */}
 
         {hasDetails && (
           <Link
             className={clsx(
-              "absolute bottom-3 left-2 text-xl text-gray-100 border-b-2",
-              "hover:text-tone-400 hover:border-tone-400 transition-all ease-linear",
-              "md:opacity-0 md:group-hover/card:opacity-100"
+              "absolute bottom-3 left-2 text-xl text-gray-100",
+              "transition-all ease-linear",
+              "md:opacity-0 md:group-hover/card:opacity-100",
+              "bg-tone-600 px-4 rounded-[0.3em] hover:text-gray-200 hover:bg-tone-700"
             )}
             href={`/products/${id}`}
           >
@@ -65,13 +79,13 @@ const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
 
       <div>
         <div className="flex justify-between">
-          <h4 className="text-l font-medium">{name}</h4>
-          <div className="text-gray-400">{`${currency}${price}`}</div>
+          <h4 className="text-l font-medium truncate">{title}</h4>
+          <div className="text-gray-400">{`$${price}`}</div>
         </div>
         <div className="text-sm text-gray-500 mb-2">{brand}</div>
 
         <div className="flex justify-beetween items-center w-full">
-          {isAvailable ? (
+          {stock > 0 ? (
             <div
               className={clsx(
                 "w-full flex items-center gap-2 text-xs",

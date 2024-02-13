@@ -8,7 +8,7 @@ export async function GET(
 ) {
   const id = params?.id;
   try {
-    const products = await fetch(`http://localhost:3001/products/${id}`).then(
+    const products = await fetch(`https://dummyjson.com/products/${id}`).then(
       (res) => res.json()
     );
     return NextResponse.json(products);

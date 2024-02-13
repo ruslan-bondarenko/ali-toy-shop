@@ -3,7 +3,7 @@ import { ProductList } from "@/widgets";
 import { getProductsData } from "@/shared";
 
 const Home = async () => {
-  const products = await getProductsData();
+  const { products } = await getProductsData();
   return (
     <main className="p-4 pt-10 md:p-10">
       <div className="flex flex-col items-center mb-10">

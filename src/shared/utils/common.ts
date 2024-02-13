@@ -6,10 +6,10 @@ export const formatDate = (timestamp: string): string => {
   return formattedDate;
 };
 
-export async function getProductsData() {
+export async function getProductsData(host: string) {
   try {
     return await fetch(
-      `${process.env.DOMAIN}/api/products`, 
+      `${host}/api/products`, 
       { 
         headers: {
           Accept: "application/json",
@@ -22,10 +22,10 @@ export async function getProductsData() {
   }
 }
 
-export async function getProductDataById(id: string) {
+export async function getProductDataById(host: string, id: string) {
   try {
     return await fetch(
-      `${process.env.DOMAIN}/api/products/${id}`, 
+      `${host}/api/products/${id}`, 
       { 
         headers: {
           Accept: "application/json",

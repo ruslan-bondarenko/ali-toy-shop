@@ -1,13 +1,20 @@
 import React, { FC } from "react";
 import { ProductCard } from "@/widgets";
 import { getProductDataById } from "@/shared";
+import { headers } from "next/headers";
 
 type Props = {
   params: { id: string };
 };
 
 const ProductItem: FC<Props> = async ({ params }) => {
-  const product = await getProductDataById(params.id);
+  const domain = headers().get("host");
+  const protocol = headers().get("x-forwarded-proto");
+
+  const product = await getProductDataById(
+    `${protocol}://${domain}`,
+    params.id
+  );
 
   return (
     <div className="p-10">

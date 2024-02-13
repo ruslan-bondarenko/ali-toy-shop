@@ -1,11 +1,13 @@
-"use client";
-
 import React from "react";
 import { ProductList } from "@/widgets";
 import { getProductsData } from "@/shared";
+import { headers } from "next/headers";
 
 const Home = async () => {
-  const { products } = await getProductsData();
+  const domain = headers().get("host");
+  const protocol = headers().get("x-forwarded-proto");
+
+  const { products } = await getProductsData(`${protocol}://${domain}`);
   return (
     <main className="p-4 pt-10 md:p-10">
       <div className="flex flex-col items-center mb-10">

@@ -6,7 +6,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Bits Orchestra",
+  title: "Ali Toy Shop",
   description: "Test Task by Ruslan Bondarenko",
 };
 

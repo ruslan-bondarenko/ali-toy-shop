@@ -7,25 +7,33 @@ export const formatDate = (timestamp: string): string => {
 };
 
 export async function getProductsData() {
-  return await fetch(
-    `${process.env.DOMAIN}/api/products`, 
-    { 
-      headers: {
-        Accept: "application/json",
-        method: "GET"
+  try {
+    return await fetch(
+      `${process.env.DOMAIN}/api/products`, 
+      { 
+        headers: {
+          Accept: "application/json",
+          method: "GET"
+        }
       }
-    }
-  ).then(res => res.json());
+    ).then(res => res.json());
+  } catch(error) {
+    return [];
+  }
 }
 
 export async function getProductDataById(id: string) {
-  return await fetch(
-    `${process.env.DOMAIN}/api/products/${id}`, 
-    { 
-      headers: {
-        Accept: "application/json",
-        method: "GET"
+  try {
+    return await fetch(
+      `${process.env.DOMAIN}/api/products/${id}`, 
+      { 
+        headers: {
+          Accept: "application/json",
+          method: "GET"
+        }
       }
-    }
-  ).then(res => res.json());
+    ).then(res => res.json());
+  } catch(error) {
+    return [];
+  }
 }

@@ -13,6 +13,7 @@ export async function GET(
     );
     return NextResponse.json(products);
   } catch (error) {
+    console.log('error', error);
     res.status(500).send({ error: "failed to fetch data" });
   }
 }

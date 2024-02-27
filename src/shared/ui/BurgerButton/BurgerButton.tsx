@@ -27,17 +27,24 @@ const BurgerButton: FC<Props> = ({ className = "" }) => {
       )}
       onClick={handleToggle}
     >
-      <div className="flex h-5 w-5 flex-col items-center justify-center">
+      <div
+        className={clsx(
+          "flex h-5 w-5 flex-col gap-1 items-center justify-center",
+          {
+            "gap-0": isMenuOpen,
+          }
+        )}
+      >
         <div
           className={clsx(
-            "ease rem:mb-[3px] h-0.5 w-5 transform rounded-full bg-gray-100 transition duration-300",
-            { "rotate-45 rem:translate-y-[2.5px]": isMenuOpen }
+            "ease h-0.5 w-5 transform rounded-full bg-gray-100 transition duration-300",
+            { "rotate-45": isMenuOpen }
           )}
         />
         <div
           className={clsx(
             "ease h-0.5 w-5 transform rounded-full bg-gray-100 transition duration-300",
-            { "-rotate-45 rem:-translate-y-[2.5px]": isMenuOpen }
+            { "-rotate-45 -translate-y-[2.5px]": isMenuOpen }
           )}
         />
       </div>

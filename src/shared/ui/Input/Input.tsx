@@ -11,7 +11,14 @@ type Props = {
   label?: string;
   placeholder: string;
   className?: string;
-  type?: "text" | "password" | "email" | "phone" | "textarea" | "number";
+  type?:
+    | "text"
+    | "password"
+    | "email"
+    | "phone"
+    | "textarea"
+    | "number"
+    | "tel";
   error?: FieldError | undefined;
   inputValue?: string;
   setInputValue?: (value: string) => void;

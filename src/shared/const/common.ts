@@ -9,3 +9,8 @@ export const ERRORS_MESSAGES = {
   required: 'This field is required',
   email: 'Invalid email address',
 };
+
+export const NAV_LINKS = [
+  {label: 'Home', link: '/'},
+  {label: 'Reviews', link: '/reviews'},
+]

@@ -1,14 +1,17 @@
+export type ICategory = {
+  id: number,
+  name: string, 
+  image: string, 
+  creationAt: string, 
+  updated: string, 
+};
+
 export type IProduct = {
   id: number,
   title: string,
-  description: string,
   price: number,
-  discountPercentage: number,
-  rating: number,
-  stock: number,
-  brand: string,
-  category: string,
-  thumbnail: string,
+  description: string,
+  category: ICategory,
   images: string[]
 };
 

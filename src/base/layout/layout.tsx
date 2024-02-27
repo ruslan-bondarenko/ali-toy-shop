@@ -6,11 +6,14 @@ import { Header } from "@/widgets";
 
 import { store } from "../store";
 import { Provider } from "react-redux";
+import { SessionProvider } from "next-auth/react";
 
 const Layout: FC<PropsWithChildren> = ({ children }) => (
   <Provider store={store}>
-    <Header />
-    {children}
+    <SessionProvider>
+      <Header />
+      {children}
+    </SessionProvider>
   </Provider>
 );
 

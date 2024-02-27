@@ -120,7 +120,7 @@ const ReviewForm: FC = () => {
               placeholder="Phone (optional)"
               inputValue={field.value}
               setInputValue={field.onChange}
-              type="number"
+              type="tel"
             />
           )}
           name="phone"

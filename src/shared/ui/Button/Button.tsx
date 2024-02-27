@@ -41,7 +41,7 @@ const Button: FC<Props & PropsWithChildren> = ({
 
   const VARIANT_MAPS: Record<ButtonVariantEnum, string> = {
     [ButtonVariantEnum.PRIMARY]: clsx(
-      "!bg-tone-700 hover:bg-tone-600 px-3 md:px-4"
+      "bg-tone-700 hover:bg-tone-400 px-3 md:px-4"
     ),
     [ButtonVariantEnum.SECONDARY]: clsx(
       "bg-gray-700 hover:bg-gray-500 px-3 md:px-4"
@@ -57,7 +57,7 @@ const Button: FC<Props & PropsWithChildren> = ({
   };
 
   const VARIANT_TITLE_MAPS: Record<ButtonVariantEnum, string> = {
-    [ButtonVariantEnum.PRIMARY]: clsx("text-white"),
+    [ButtonVariantEnum.PRIMARY]: clsx("text-gray-700"),
     [ButtonVariantEnum.SECONDARY]: clsx("text-white"),
     [ButtonVariantEnum.WHITE]: "",
     [ButtonVariantEnum.OUTLINE]: "",

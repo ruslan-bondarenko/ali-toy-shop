@@ -18,6 +18,7 @@ export async function getProductsData(host: string) {
       }
     ).then(res => res.json());
   } catch(error) {
+    console.log('getProductsData errors', error);
     return [];
   }
 }

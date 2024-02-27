@@ -7,15 +7,18 @@ const Home = async () => {
   const domain = headers().get("host");
   const protocol = headers().get("x-forwarded-proto");
 
-  const { products } = await getProductsData(`${protocol}://${domain}`);
+  // const { products } = await getProductsData(`${protocol}://${domain}`);
+  const products = await getProductsData(`${protocol}://${domain}`);
+  console.log("products", products);
+
   return (
     <main className="p-4 pt-10 md:p-10">
       <div className="flex flex-col items-center mb-10">
         <h3 className="text-xs md:text-m font-medium uppercase">
-          The innovation leader in luxury vinyl plank
+          WELCOME TO OUR STORE
         </h3>
         <h1 className="font-lora text-4xl md:text-5xl font-medium">
-          Let's Get Started
+          WHERE SLOW FASHION MEETS LUXURY
         </h1>
       </div>
 

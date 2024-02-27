@@ -16,19 +16,7 @@ type Props = {
 };
 
 const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
-  const {
-    id,
-    title,
-    description,
-    price,
-    discountPercentage,
-    rating,
-    stock,
-    brand,
-    category,
-    thumbnail,
-    images,
-  } = product;
+  const { id, title, description, price, category, images } = product;
 
   const [selectedProducts, setSelectedProducts] = useState<IProduct[] | null>();
 
@@ -49,7 +37,7 @@ const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
           sizes="100vw"
           style={{ width: "100%", height: "100%" }}
           className="!object-contain"
-          src={thumbnail || images[0] || "https://placehold.co/600x400/png"}
+          src={images[0] || "https://placehold.co/600x400/png"}
           alt={`product-img--${id}`}
         />
 
@@ -62,10 +50,10 @@ const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
         {hasDetails && (
           <Link
             className={clsx(
-              "absolute bottom-3 left-2 text-xl text-gray-100",
+              "absolute bottom-3 left-2 text-m text-tone-500",
               "transition-all ease-linear",
               "md:opacity-0 md:group-hover/card:opacity-100",
-              "bg-tone-600 px-4 rounded-[0.3em] hover:text-gray-200 hover:bg-tone-700"
+              "bg-gray-700 py-1 px-4 rounded-[0.3em] hover:bg-gray-500"
             )}
             href={`/products/${id}`}
           >
@@ -73,19 +61,18 @@ const ProductItem: FC<Props> = ({ product, hasDetails, hasCompare }) => {
           </Link>
         )}
         <div className="group absolute top-2 right-2 flex items-center justify-center w-6 h-6 cursor-pointer">
-          <HeartIcon classNames="text-gray-900 group-hover:text-red transition-all ease-linear" />
+          <HeartIcon classNames="text-gray-100 group-hover:text-red transition-all ease-linear" />
         </div>
       </div>
 
       <div>
-        <div className="flex justify-between">
+        <div className="flex justify-between mb-2">
           <h4 className="text-l font-medium truncate">{title}</h4>
           <div className="text-gray-400">{`$${price}`}</div>
         </div>
-        <div className="text-sm text-gray-500 mb-2">{brand}</div>
 
         <div className="flex justify-beetween items-center w-full">
-          {stock > 0 ? (
+          {true ? (
             <div
               className={clsx(
                 "w-full flex items-center gap-2 text-xs",

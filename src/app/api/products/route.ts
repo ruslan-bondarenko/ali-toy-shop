@@ -3,7 +3,8 @@ import type { NextApiResponse } from "next";
 
 export async function GET(req: Request, res: NextApiResponse) {
   try {
-    const products = await fetch("https://dummyjson.com/products").then((res) =>
+    // const products = await fetch("https://dummyjson.com/products").then((res) =>
+    const products = await fetch("https://api.escuelajs.co/api/v1/products?offset=0&limit=10").then((res) =>
       res.json()
     );
     return NextResponse.json(products);

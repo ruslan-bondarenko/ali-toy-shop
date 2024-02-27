@@ -7,9 +7,7 @@ const Home = async () => {
   const domain = headers().get("host");
   const protocol = headers().get("x-forwarded-proto");
 
-  // const { products } = await getProductsData(`${protocol}://${domain}`);
   const products = await getProductsData(`${protocol}://${domain}`);
-  console.log("products", products);
 
   return (
     <main className="p-4 pt-10 md:p-10">

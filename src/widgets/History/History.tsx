@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 
 const History = () => {
-  const session = useSession();
+  // const session = useSession();
   const [history, setHistory] = useState([]);
 
   return (
